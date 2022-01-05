@@ -1,13 +1,14 @@
 const express = require('express');
 const bycrypt = require('bcrypt');
 const router = express.Router();
+const config = require('../public/javascripts/config');
+const auth = require('../public/javascripts/authentication');
 
 /* Register User info */
-router.get('/', function(req, res, next) {
+router.get('/', auth.checkNotAuthenticated, function(req, res) {
     res.render('register.ejs');
 });
 
-var users = [];
 router.post('/', registerUser);
 
 async function registerUser(req, res, next) {
@@ -21,10 +22,11 @@ async function registerUser(req, res, next) {
           email: req.body.email,
           password: hashedPassword
        };
-        users.push(user);
+        
+        config.users.push(user);
 
         console.log("-- User registered");
-        console.log(users);
+        console.log(config.users);
         res.redirect('/login');
      } catch (e) {
         console.log(e)
