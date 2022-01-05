@@ -104,6 +104,7 @@
     "make-dir": "^3.1.0",
     "media-typer": "^0.3.0",
     "merge-descriptors": "^1.0.1",
+    "method-override": "^3.0.0",
     "methods": "^1.1.2",
     "mime": "^1.6.0",
     "mime-db": "^1.51.0",
