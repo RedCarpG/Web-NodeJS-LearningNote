@@ -8,5 +8,8 @@
   <body>
     <h1> Hi <%= name %></h1>
     <p>Welcome to <%= name %></p>
+    <form action="/logout?_method=DELETE" method="POST">
+      <button type="submit"> Log Out </button>
+    </form>
   </body>
 </html>
